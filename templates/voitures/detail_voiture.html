@@ -45,9 +45,9 @@
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
-                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@example.com</small>
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>Cite Binal,Zac Mbao,Dakar</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>Whatshap 0033 768627267</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>BABSRent@gmail.com</small>
                 </div>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
@@ -67,19 +67,20 @@
     <!-- Navbar & Carousel Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-            <a href="#" class="navbar-brand p-0">
-                <h1 class="m-0"><i class="fas fa-car"></i>BABS</h1>
+            <a href="{% url 'voiture'%}" class="navbar-brand p-0">
+                <h1 class="m-0 text-primary"><i class="fas fa-car"></i>BABS</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" >
                 <span class="fa fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="{% url 'louer' %}" class="nav-item nav-link ">Louer votre voiture</a>
-                    <a href="{% url 'louer' %}" class="nav-item nav-link">Coursier</a>
-                    <a href="{% url 'inscription' %}" class="nav-item nav-link">S'inscrire</a>
+                    <a href="{% url 'louer' %}" class="nav-item nav-link  text-dark ">Louer votre voiture</a>
+                    <a href="{% url 'louer' %}" class="nav-item nav-link   text-dark ">Coursier</a>
+                    <a href="{% url 'inscription' %}" class="nav-item nav-link  text-dark ">S'inscrire</a>
+                      <a href="#" class="nav-link text-dark  ">Mon profil</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link">Mon profil</a>
+
 
 
                     </div>
@@ -110,10 +111,10 @@
                         </div>
                         <div class="p-5 pt-0">
                             <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>49.00<small
-                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Month</small>
+                                <small class="align-top" style="font-size: 22px; line-height: 45px;">CFA</small>{{ voiture.prix }}<small
+                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">/ jour</small>
                             </h1>
-                             <img class="img-fluid" src="{{voiture.image.url}}">
+                             <img class="img-fluid" src="{{voiture.image.url}}"  width="500" height="400" >
                             <a href="" class="btn btn-primary py-2 px-4 mt-4">Reserver</a>
                         </div>
                     </div>
@@ -126,10 +127,10 @@
                         </div>
                         <div class="p-5 pt-0">
                             <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>99.00<small
-                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Month</small>
+                                <small class="align-top" style="font-size: 22px; line-height: 45px;">CFA</small>{{ voiture.prix }}<small
+                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">/ jour</small>
                             </h1>
-                            <img class="img-fluid" src="{{voiture.image1.url}}">
+                            <img class="img-fluid" src="{{voiture.image1.url}}" width="500" height="400" >
                             <a href="" class="btn btn-primary py-2 px-4 mt-4">Reserver</a>
                         </div>
                     </div>
@@ -142,10 +143,10 @@
                         </div>
                         <div class="p-5 pt-0">
                             <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>149.00<small
-                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Month</small>
+                                <small class="align-top" style="font-size: 22px; line-height: 45px;">CFA</small>{{ voiture.prix }}<small
+                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">/ jour</small>
                             </h1>
-                            <img class="img-fluid" src="{{voiture.image2.url}}">
+                            <img class="img-fluid" src="{{voiture.image2.url}}" width="500" height="400">
                             <a href="" class="btn btn-primary py-2 px-4 mt-4">Reserver</a>
                         </div>
                     </div>
@@ -160,8 +161,8 @@
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
-                <div class="col-lg-7">
-                    <div class="section-title position-relative pb-3 mb-5 ">
+                <div class="col-lg-7   border border-info         ">
+                    <div class="section-title position-relative pb-3 mb-5 border border-light">
                         <h5 class=" fw-bold text-primary text-uppercase ">A propos du vehicule</h5>
                              {{ voiture.content }}
 
@@ -234,11 +235,11 @@
                     </div>
                 </div>
                    <div class="col-lg-5">
-                    <div class="bg-dark rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
+                    <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
                         <form>
                             <div class="row g-3">
-                                <div class="col-xl-12">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="{{ voiture.marque     }}" style="height: 55px;">
+                                <div class="col-xl-12 ">
+                                    <input type="text" class="form-control bg-light border-0  border-primary        " placeholder="{{ voiture.marque     }}" style="height: 55px;">
                                 </div>
                                 <div class="col-12">
                                     <input type="text" class="form-control bg-light border-0" placeholder="{{ voiture.emplacement     }}" style="height: 55px;">

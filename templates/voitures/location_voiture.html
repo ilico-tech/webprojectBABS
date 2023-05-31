@@ -45,9 +45,9 @@
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
-                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@example.com</small>
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>Cite Binal,Zac Mbao,Dakar</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>Whatshap 0033 768627267</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>BABSRent@gmail.com</small>
                 </div>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
@@ -86,7 +86,10 @@
                     <div class="nav-item dropdown">
 
                         <a href="{% url 'sedeconnecter' %}" class="nav-link">Se deconnecter</a>
-                        <span> Bienvenue {{ request.user }}</span>
+                        <span>Bienvenue {{ request.user  }}</span>
+
+
+
                     </div>
 
                 </div>
@@ -101,7 +104,7 @@
         <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="{% static 'img/chauf.jpg'%}" alt="Image">
+
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h5 class="text-white text-uppercase mb-3 animated slideInDown"></h5>
@@ -165,7 +168,7 @@
             <div class="row gx-0">
                 <div class=" col-lg-7 wow zoomIn" data-wow-delay="0.1s">
                     <div class=" shadow d-flex align-items-center justify-content-center p-4" style="height:80px">
-                         <form method="get" class="d-flex">
+                         <form method="get" class="d-flex" >
                              <div class="mt-3 form-control">
                             {{ myfilters.form }}
                              </div>
@@ -195,14 +198,14 @@
     <!-- start voiture -->
 <div class="row row-cols-md-5 row-cols-sm-2 ">
     {% for voiture in voitures %}
- <div class="col  py-0    ">
-     <div class="custom-card card-mb-3 shadow" style="width=18rem;height=17rem">
+ <div class="col  py-0    " style="max-width: 18rem;"   >
+     <div class="custom-card card-mb-3 shadow  border border-primary " >
          {% if voiture.image  %}
-      <a href="{% url 'detail' voiture.id %}"> <img class="img-fluid" src="{{ voiture.image.url }}" alt=""</a>
+      <a href="{% url 'detail' voiture.id %}"> <img class="img-fluid" src="{{ voiture.image.url }}"   alt=""</a>
          {% endif  %}
-            <div class="card-body">
+            <div class="card-body " style="width=300"    >
     <a href="">{{ voiture.emplacement }}</a><hr>
-                <small class="me-3">{{ voiture.service }} par
+                <small class="me-3">{{ voiture.service }}
                 <i class="far fa-user text-primary me-2"></i>{{ voiture.user.username }}</small>
                 <h4 class="mb-3">{{ voiture.marque }}</h4>
                 <div class="d-flex ">
@@ -226,7 +229,7 @@
                          </div>
                 </div>
 
-                     {%  endif %}
+                    {%  endif %}
 
 
             </div>

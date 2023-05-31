@@ -46,8 +46,9 @@ def LouermaVoiture(request):
     if request.method == 'POST':
         form =VoitureForm(request.POST,request.FILES)
         if form.is_valid():
-            form=form.save(commit=False)
-            form.user=request.user
+
+          #  form=form.save(commit=False)
+          # form.user=request.user
             form.save()
         return redirect('voiture')
 
@@ -68,7 +69,7 @@ def ModifierVoiture(request,id):
         form.save()
        return redirect('voiture')
 
-     else: form=VoitureForm()
+     else: form=VoitureForm(instance=voiture)
 
 
 
@@ -91,17 +92,13 @@ def ModifierVoiture(request,id):
 def SupprimerVoiture(request,id):
         voiture=Voiture.objects.get(id=id)
         if voiture.user == request.user:
+         if request.method == 'POST':
            voiture.delete()
-        else:
-            raise Http404
-        return redirect('voiture')
 
+           return redirect('/')
+         context={'voiture':voiture}
 
-        context={'voiture':voiture}
-
-
-
-        return render(request,'voitures/supprimer_ma_voiture.html',context)
+         return render(request,'voitures/supprimer_ma_voiture.html',context)
 
 
 

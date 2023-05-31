@@ -11,6 +11,19 @@ class UserCreationForm(UserCreationForm):
         model = User
         fields = ['username','password1','password2',]
 
+    widgets = {
+        'username': forms.TextInput(attrs={'class':'form-control'
+
+                                        }),
+        'password1': forms.TextInput(attrs={'class':'form-control'
+
+                                         }),
+
+        'password2': forms.TextInput(attrs={'class':'form-control'
+
+                                         })
+    }
+
 
 
 
